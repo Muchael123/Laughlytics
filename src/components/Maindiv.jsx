@@ -31,7 +31,7 @@ function Maindiv() {
           ) : loading ? (
             <h1>Loading...</h1>
           ) : data?.category === "Programming" ? (
-            <h1>Here's a joke: {" "}{data?.joke}</h1>
+            <h1>Here's a Programming joke: {" "}{data?.joke}</h1>
           ) : data?.category === "Pun" ? (
             <h1>
               {data?.setup}: {data?.delivery} ✨🤣🤣🤣🤣
