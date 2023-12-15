@@ -30,12 +30,15 @@ function Maindiv() {
             <h1>An error occurred</h1>
           ) : loading ? (
             <h1>Loading...</h1>
-          ) : (
+          ) : data?.category === "Programming" ? (
+            <h1>Here's a joke: {" "}{data?.joke}</h1>
+          ) : data?.category === "Pun" ? (
             <h1>
-              {data?.setup}: {data?.delivery} {" "}✨🤣🤣🤣🤣
+              {data?.setup}: {data?.delivery} ✨🤣🤣🤣🤣
             </h1>
-          )}
+          ) : null}
         </h1>
+
         <MyButton reFetch={reFetch} />
       </div>
     </div>
