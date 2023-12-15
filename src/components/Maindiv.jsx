@@ -4,7 +4,8 @@ import Rolls from '../assets/Rolls-Royce.jpeg'
 import MyButton from "./MyButton";
 import useFetch from '../hooks/useFetch';
 function Maindiv() {
-  const url = "https://v2.jokeapi.dev/joke/any";
+  const url =
+    "https://v2.jokeapi.dev/joke/Programming,Pun?blacklistFlags=racist,sexist";
   const my_portfolio = "https://my-portfolio-sepia-six.vercel.app/";
   const  {data, loading, error, reFetch} = useFetch(url);
   if (error) return <h1>{error}</h1>;
