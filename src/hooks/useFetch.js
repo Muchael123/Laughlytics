@@ -20,13 +20,26 @@ function useFetch(url) {
   };
 
   useEffect(() => {
-    fetchData(); // Initial fetch
-    const interval = setInterval(fetchData, 10000); // Refresh every 10 seconds
+    fetchData(); 
+    const interval = setInterval(fetchData, 10000); 
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [url]);
 
-  return { data, loading, error };
+  const reFetch = () => {
+    setLoading((prev) => !prev);
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => setLoading(false));
+  };
+
+  return { data, loading, error, reFetch };
 }
 
 export default useFetch;
